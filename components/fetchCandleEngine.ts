@@ -1,3 +1,4 @@
+import redisClient from 'pages/api/redis';
 import pairs from './pairs';
 import setIntervalFromNow from './setIntervalFromNow';
 
@@ -51,8 +52,9 @@ const fetchCandleEngine = async () => {
 		return { pivot, l3, l4, h3, h4 };
 	};
 
-	
-	const kucoin = async () => {
+
+
+	const fetchPairData = async (pairName: string) => {
 		const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60* 24).getTime();
 		const toDate = new Date().getTime();
 		const interval = 1440;
@@ -60,9 +62,14 @@ const fetchCandleEngine = async () => {
 		// const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60  ).getTime();
 		// const toDate = new Date().getTime();
 		// const interval = 1;
+		const cachedData = await redisClient.get(pairName);
+			if(cachedData != null) {
+				console.log("Fetched data from cache for: ", pairName);
+				const parsedData = JSON.parse(cachedData) as series;
+				return parsedData;
+			}
 
-		for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
-			console.log(`fetching ${pairName}`);
+			console.log("Fetching from API for: ", pairName);
 	
 			const url = `https://api-futures.kucoin.com/api/v1/kline/query?symbol=${pairName}&granularity=${interval}&from=${fromDate}&to=${toDate}`;
 			const data: series = await fetch(url)
@@ -118,31 +125,73 @@ const fetchCandleEngine = async () => {
 					});
 					return r;
 				});
-			pairs.kucoin[pairName].setCandles1Day(await data);
-		}
 
-		// get all tradable pairs on koocoin
-		// Cant remember why I had included this in the original code
-
-		// await fetch('https://api-futures.kucoin.com/api/v1/contracts/active')
-		// 	.then((res) => res.json())
-		// 	.then((res) => {
-		// 		if (res.code === '200000') {
-		// 			for (let i = 0; i < res.data.length; i++) {
-		// 				const pairName = res.data[i].symbol;
-		// 				const turnover24Hrs = res.data[i].turnoverOf24h;
-		// 				try {
-		// 					pairs.kucoin[pairName].setRanking(turnover24Hrs);
-		// 				} catch (error) {
-		// 					console.log('fetch candleengine kookoin error on -->', pairName);
-		// 				}
-		// 			}
-		// 		}
-		// 		// for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
-		// 		// 	// pairs.kucoin[pairName].setRanking()
-		// 		// }
-		// 	});
+			// store the data in redis DB for caching purpose
+			// we store on the pairName basis
+			redisClient.set(pairName, JSON.stringify(data));
+			return data;
 	}
+
+	const kucoin = async () => {
+		const pairEntries = Object.entries(pairs.kucoin);
+		const maxThreads = 30; // Limit of simultaneous threads
+		const queue: Promise<void>[] = [];
+	
+		for (const [pairName, pair] of pairEntries) {
+			if (queue.length >= maxThreads) {
+				console.log("Thread Queue Full. Current Pair: ", pairName);
+				// Wait for one promise to resolve or reject
+				await Promise.race(queue);
+			}
+	
+			const task = fetchPairData(pairName)
+				.then((data) => {
+					pairs.kucoin[pairName].setCandles1Day(data);
+					// Remove resolved promise from the queue
+					queue.splice(queue.indexOf(task), 1);
+				})
+				.catch((err: any) => {
+					console.error(`Error fetching data for ${pairName}:`, err);
+					// Remove failed promise from the queue
+					queue.splice(queue.indexOf(task), 1);
+				});
+	
+			console.log("Adding Pair: ", pairName);
+			queue.push(task);
+		}
+	
+		// Wait for remaining promises to complete
+		await Promise.all(queue);
+	};
+	
+	// const kucoin = async () => {
+		
+
+	// 	for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
+	// 	}
+
+	// 	// get all tradable pairs on koocoin
+	// 	// Cant remember why I had included this in the original code
+
+	// 	// await fetch('https://api-futures.kucoin.com/api/v1/contracts/active')
+	// 	// 	.then((res) => res.json())
+	// 	// 	.then((res) => {
+	// 	// 		if (res.code === '200000') {
+	// 	// 			for (let i = 0; i < res.data.length; i++) {
+	// 	// 				const pairName = res.data[i].symbol;
+	// 	// 				const turnover24Hrs = res.data[i].turnoverOf24h;
+	// 	// 				try {
+	// 	// 					pairs.kucoin[pairName].setRanking(turnover24Hrs);
+	// 	// 				} catch (error) {
+	// 	// 					console.log('fetch candleengine kookoin error on -->', pairName);
+	// 	// 				}
+	// 	// 			}
+	// 	// 		}
+	// 	// 		// for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
+	// 	// 		// 	// pairs.kucoin[pairName].setRanking()
+	// 	// 		// }
+	// 	// 	});
+	// }
 
 	const binance = async () => {
 		const interval = '1d';

@@ -47,7 +47,7 @@ const Home: NextPage = ({ returnedPairsList }: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	init.normalRun1Day();
+	await init.normalRun1Day();
 	const returnedPairsList: any = [];
 	for (let pair of Object.keys(pairs.kucoin)) {
 		try {

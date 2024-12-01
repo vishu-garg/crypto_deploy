@@ -26,7 +26,7 @@ const init: any = () => {
 		console.log(`inside INIT func at ${new Date()}`);
 			await fetchCandleEngine1hr();
 			for (const exchange of Object.keys(pairs)) {
-				if(exchange === 'kucoin'){
+				if(exchange === 'kucoin') {
 					for (const pair of Object.keys(pairs[exchange])){
 						await pairs[exchange][pair].checkCondition1Hr();
 					}

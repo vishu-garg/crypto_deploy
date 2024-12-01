@@ -1,6 +1,12 @@
 import pair from './pair';
 import pairsList from './pairsList';
 
+export interface pairsList {
+	[index: string]: {
+		[index: string]: typeof pair
+	}
+}
+
 const pairs: () => {[index: string]: { [index: string]: ReturnType<typeof pair> }} = () => {
 	const pairListKucoin: { [index: string]: ReturnType<typeof pair> } = {};
 	pairsList.kucoinPairsList.forEach((pairVal: string) => {
