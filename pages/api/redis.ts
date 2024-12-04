@@ -8,7 +8,7 @@ const redisClient = new Redis({
 });
 
 
-const clearRedisKeys = async () => {
+export const clearRedisKeys = async () => {
     try {
         await redisClient.flushall(); // Clears all keys from the Redis database
         console.log("All keys cleared from Redis.");
@@ -16,8 +16,5 @@ const clearRedisKeys = async () => {
         console.error("Error clearing Redis keys:", error);
     }
 };
-
-// Schedule it to run every 24 hours
-setInterval(clearRedisKeys, 24*60*60*1000);
 
 export default redisClient;
