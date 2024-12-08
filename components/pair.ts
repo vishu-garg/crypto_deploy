@@ -16,6 +16,11 @@ const pair = (name = 'BTC/USDT') => {
 	let isInsideCamrilla1Day: boolean = false;
 	let virginCPR1Day: string = '';
 	let numberOfAscendindCPR1Day = 0;
+
+	let candles1Week: series;
+	let isHigherThirdZone1Week: boolean = false;
+	let isLowerThirdZone1Week: boolean = false;
+	let isInsideCamrilla1Week: boolean = false;
 	
 	let candles1Hr: series;
 	let isHigherThirdZone1Hr: boolean = false;
@@ -26,6 +31,9 @@ const pair = (name = 'BTC/USDT') => {
 	
 	const setCandles1Day = (data: series) => {
 		candles1Day = data;
+	}
+	const setCandles1Week = (data: series) => {
+		candles1Week = data;
 	}
 	const setCandles1Hr = (data: series) => {
 		candles1Hr = data;
@@ -84,9 +92,9 @@ const pair = (name = 'BTC/USDT') => {
 		} else return false;
 	};
 	const seriesOfAscendingCPR = (series: series) => {
-		let numberOfCPR = 1;
-		for(let i=0; i<series.length; i++){
-			if(series[i].cpr.pivot > series[i+1].cpr.pivot){
+		let numberOfCPR = 0;
+		for(let i=1; i<series.length; i++){
+			if(series[i-1].cpr.pivot > series[i].cpr.pivot){
 				numberOfCPR++;
 			} else break;
 		}
@@ -103,6 +111,15 @@ const pair = (name = 'BTC/USDT') => {
 		numberOfAscendindCPR1Day = seriesOfAscendingCPR(getCandles1Day());
 		isInsideCamrilla1Day = isInsideCamrilla(getCandles1Day());
 	}
+
+	const checkCondition1Week = () => {
+		// console.log("inside checkCondition 1Week")
+		const {isHigherThirdZone, isLowerThirdZone} = isThirdZone(getCandles1Week());
+		isHigherThirdZone1Week = isHigherThirdZone;
+		isLowerThirdZone1Week = isLowerThirdZone;
+		isInsideCamrilla1Week = isInsideCamrilla(getCandles1Week());
+	}
+
 	const checkCondition1Hr = () => {
 		const {isHigherThirdZone, isLowerThirdZone} = isThirdZone(getCandles1Hr());
 		isHigherThirdZone1Hr = isHigherThirdZone;
@@ -119,12 +136,16 @@ const pair = (name = 'BTC/USDT') => {
 			data = {
 				name,
 				ranking,
-				isHigherThirdZone: isHigherThirdZone1Day,
-				isLowerThirdZone: isLowerThirdZone1Day,
-				isInsideCamrilla: isInsideCamrilla1Day,
-				virginCPR: virginCPR1Day,
-				ascendingCPR: numberOfAscendindCPR1Day,
-				time: (getCandles1Day().slice(0,1)[0].time) * 1000,
+				isHigherThirdZone1Day: isHigherThirdZone1Day,
+				isLowerThirdZone1Day: isLowerThirdZone1Day,
+				isInsideCamrilla1Day: isInsideCamrilla1Day,
+				virginCPR1Day: virginCPR1Day,
+				ascendingCPR1Day: numberOfAscendindCPR1Day,
+				time1Day: (getCandles1Day().slice(0,1)[0].time) * 1000,
+				isHigherThirdZone1Week: isHigherThirdZone1Day,
+				isLowerThirdZone1Week: isLowerThirdZone1Day,
+				isInsideCamrilla1Week: isInsideCamrilla1Day,
+				time1Week: (getCandles1Week().slice(0,1)[0].time) * 1000,
 			}
 		}
 		if(duration === interval.H1){
@@ -147,16 +168,19 @@ const pair = (name = 'BTC/USDT') => {
 	}
 	
 	const getCandles1Day = () => candles1Day;
+	const getCandles1Week = () => candles1Week;
 	const getCandles1Hr = () => candles1Hr;
 	const getIsHigherThirdZone1Day = () => isHigherThirdZone1Day;
 
 	return {
 		setCandles1Day,
+		setCandles1Week,
 		setCandles1Hr,
 		setRanking,
 		// isThirdZone,
 
 		checkCondition1Day,
+		checkCondition1Week,
 		checkCondition1Hr,
 		sentData,
 		testArbitrage,
@@ -164,6 +188,7 @@ const pair = (name = 'BTC/USDT') => {
 		
 		getCandles1Day,
 		getCandles1Hr,
+		getCandles1Week,
 		getIsHigherThirdZone1Day,
 	};
 };
