@@ -4,7 +4,7 @@ import setIntervalFromNow from './setIntervalFromNow';
 
 let ranOnce = false;
 
-const fetchCandleEngine = async () => {
+const fetchCandleEngine = async (type?: string) => {
 	if (ranOnce) return;
 
 	// go fetch candles data for every one of the pairs but in a deferred way.
@@ -52,24 +52,28 @@ const fetchCandleEngine = async () => {
 		return { pivot, l3, l4, h3, h4 };
 	};
 
-
-
 	const fetchPairData = async (pairName: string) => {
-		const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60* 24).getTime();
+		let fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60* 24).getTime();
 		const toDate = new Date().getTime();
-		const interval = 1440;
+		let interval = 1440;
+
+		if(type == "week") {
+			// from date is 15 weeks from now
+			fromDate = new Date(new Date().getTime() - 15 * 7 * 60 * 1000 * 60* 24).getTime();
+			interval = 7 * 1440;
+		}
 
 		// const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60  ).getTime();
 		// const toDate = new Date().getTime();
 		// const interval = 1;
-		const cachedData = await redisClient.get(pairName);
+		const cachedData = await redisClient.get(pairName + ":"+ type);
 			if(cachedData != null) {
-				console.log("Fetched data from cache for: ", pairName);
+				console.log("Fetched data from cache for: ", pairName + ":" + type);
 				const parsedData = JSON.parse(cachedData) as series;
 				return parsedData;
 			}
 
-			console.log("Fetching from API for: ", pairName);
+			console.log("Fetching from API for: ", pairName + ":" + type);
 	
 			const url = `https://api-futures.kucoin.com/api/v1/kline/query?symbol=${pairName}&granularity=${interval}&from=${fromDate}&to=${toDate}`;
 			const data: series = await fetch(url)
@@ -90,9 +94,21 @@ const fetchCandleEngine = async () => {
 	
 						if (index < array.length - 1) {
 							 const [timePrev, openPrev, highPrev, lowPrev, closePrev] = kucoinOHLCV(array[index + 1]);
-							cpr = calcCPR(highPrev, lowPrev, closePrev);
+							
+							if(type !== "week"){
+								cpr = calcCPR(highPrev, lowPrev, closePrev);
+							} else {
+								cpr = {
+									pivot: 0,
+									bc: 0,
+									tc: 0,
+									r1: 0,
+									r2: 0,
+									s1: 0,
+									s2: 0,
+								};
+							}
 							camrilla = calcCamarilla(highPrev, lowPrev, closePrev);
-	
 						} else {
 							cpr = {
 								pivot: 0,
@@ -128,7 +144,7 @@ const fetchCandleEngine = async () => {
 
 			// store the data in redis DB for caching purpose
 			// we store on the pairName basis
-			redisClient.set(pairName, JSON.stringify(data));
+			redisClient.set(pairName + ":"+ type, JSON.stringify(data));
 			return data;
 	}
 
@@ -146,7 +162,11 @@ const fetchCandleEngine = async () => {
 	
 			const task = fetchPairData(pairName)
 				.then((data) => {
+					if(type == "day") {
 					pairs.kucoin[pairName].setCandles1Day(data);
+					}else {
+						pairs.kucoin[pairName].setCandles1Week(data);
+					}
 					// Remove resolved promise from the queue
 					queue.splice(queue.indexOf(task), 1);
 				})

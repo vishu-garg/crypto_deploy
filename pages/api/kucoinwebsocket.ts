@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { log } from 'console';
 import type { NextApiRequest, NextApiResponse } from 'next';
-const _ = require('lodash');
 // const logUpdate = require('log-update');
 import logUpdate from 'log-update';
 // import API from '@/components/kucoin/kucoin-config-init';
