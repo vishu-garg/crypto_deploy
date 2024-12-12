@@ -59,7 +59,7 @@ const fetchCandleEngine = async (type?: string) => {
 
 		if(type == "week") {
 			// from date is 15 weeks from now
-			fromDate = new Date(new Date().getTime() - 15 * 7 * 60 * 1000 * 60* 24).getTime();
+			fromDate = new Date(new Date().getTime() - 4 * 7 * 60 * 1000 * 60* 24).getTime();
 			interval = 7 * 1440;
 		}
 

@@ -49,7 +49,7 @@ const pair = (name = 'BTC/USDT') => {
 		let isLowerThirdZone = false;
 		// console.log(series[0].camrilla, name);
 		try {
-			if (series[0].camrilla.l3 > series[1].camrilla.h3) {
+			if (series[0]?.camrilla.l3 > series[1]?.camrilla.h3) {
 				isHigherThirdZone = true;
 			}
 			
@@ -58,7 +58,7 @@ const pair = (name = 'BTC/USDT') => {
 			console.log(series[0])
 		}
 		// console.log(series[0].camrilla.h3, series[1].camrilla.l3, name);
-		if (series[0].camrilla.h3 < series[1].camrilla.l3) {
+		if (series[0]?.camrilla.h3 < series[1]?.camrilla.l3) {
 			isLowerThirdZone = true;
 		}
 		return {
@@ -87,7 +87,7 @@ const pair = (name = 'BTC/USDT') => {
 	const isInsideCamrilla = (series: series) => {
 		const prevDay = series[1];
 		const today = series[0];
-		if (prevDay.camrilla.h3 > today.camrilla.h3 && prevDay.camrilla.l3 < today.camrilla.l3) {
+		if (prevDay && today && prevDay.camrilla.h3 > today.camrilla.h3 && prevDay.camrilla.l3 < today.camrilla.l3) {
 			return true;
 		} else return false;
 	};
