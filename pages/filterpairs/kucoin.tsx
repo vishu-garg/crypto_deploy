@@ -133,9 +133,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         else return 0;
     });
 
-
-    console.log(sortedPairsList1Day, sortedPairsList1Week, "<===");
-
     return {
         props: {
             returnedPairsList1Day: sortedPairsList1Day,

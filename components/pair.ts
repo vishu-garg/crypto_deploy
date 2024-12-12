@@ -141,11 +141,11 @@ const pair = (name = 'BTC/USDT') => {
 				isInsideCamrilla1Day: isInsideCamrilla1Day,
 				virginCPR1Day: virginCPR1Day,
 				ascendingCPR1Day: numberOfAscendindCPR1Day,
-				time1Day: (getCandles1Day().slice(0,1)[0].time) * 1000,
-				isHigherThirdZone1Week: isHigherThirdZone1Day,
-				isLowerThirdZone1Week: isLowerThirdZone1Day,
-				isInsideCamrilla1Week: isInsideCamrilla1Day,
-				time1Week: (getCandles1Week().slice(0,1)[0].time) * 1000,
+				time1Day: (getCandles1Day()?.slice(0,1)[0].time) * 1000,
+				isHigherThirdZone1Week: isHigherThirdZone1Week,
+				isLowerThirdZone1Week: isLowerThirdZone1Week,
+				isInsideCamrilla1Week: isInsideCamrilla1Week,
+				time1Week: (getCandles1Week()?.slice(0,1)[0].time) * 1000,
 			}
 		}
 		if(duration === interval.H1){

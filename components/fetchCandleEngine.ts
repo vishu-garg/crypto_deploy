@@ -163,7 +163,7 @@ const fetchCandleEngine = async (type?: string) => {
 			const task = fetchPairData(pairName)
 				.then((data) => {
 					if(type == "day") {
-					pairs.kucoin[pairName].setCandles1Day(data);
+						pairs.kucoin[pairName].setCandles1Day(data);
 					}else {
 						pairs.kucoin[pairName].setCandles1Week(data);
 					}

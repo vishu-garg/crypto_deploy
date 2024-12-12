@@ -24,7 +24,7 @@ const Home: NextPage = ({ returnedPairsList }: any) => {
 						<th>Higher Third Zone</th>
 						<th>Lower Third Zone</th>
 						<th>Inside Camarilla</th>
-						{/* <th>Virgin CPR</th> */}
+						<th>Virgin CPR</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,7 +36,7 @@ const Home: NextPage = ({ returnedPairsList }: any) => {
 								<td style={{ background: data.isHigherThirdZone ? 'green' : '' }}>{data.isHigherThirdZone.toString()}</td>
 								<td style={{ background: data.isLowerThirdZone ? 'red' : '' }}>{data.isLowerThirdZone.toString()}</td>
 								<td style={{ background: data.isInsideCamrilla ? 'blue' : '' }}>{data.isInsideCamrilla.toString()}</td>
-								{/* <td>{data.virginCPR}</td> */}
+								<td>{data.virginCPR}</td>
 							</tr>
 						);
 					})}
@@ -47,7 +47,7 @@ const Home: NextPage = ({ returnedPairsList }: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	await init.normalRun1Week();
+	await init.normalRun1Day();
 	const returnedPairsList: any = [];
 	for (let pair of Object.keys(pairs.kucoin)) {
 		try {
