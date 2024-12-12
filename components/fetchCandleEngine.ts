@@ -66,12 +66,12 @@ const fetchCandleEngine = async (type?: string) => {
 		// const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60  ).getTime();
 		// const toDate = new Date().getTime();
 		// const interval = 1;
-		const cachedData = await redisClient.get(pairName + ":"+ type);
-			if(cachedData != null) {
-				console.log("Fetched data from cache for: ", pairName + ":" + type);
-				const parsedData = JSON.parse(cachedData) as series;
-				return parsedData;
-			}
+		// const cachedData = await redisClient.get(pairName + ":"+ type);
+		// 	if(cachedData != null) {
+		// 		console.log("Fetched data from cache for: ", pairName + ":" + type);
+		// 		const parsedData = JSON.parse(cachedData) as series;
+		// 		return parsedData;
+		// 	}
 
 			console.log("Fetching from API for: ", pairName + ":" + type);
 	
@@ -148,23 +148,48 @@ const fetchCandleEngine = async (type?: string) => {
 			return data;
 	}
 
+	
 	const kucoin = async () => {
 		const pairEntries = Object.entries(pairs.kucoin);
 		const maxThreads = 30; // Limit of simultaneous threads
+		const maxRequestsPerMinute = 150;
+		const interval = 60000 / maxRequestsPerMinute; // Time interval between API requests in milliseconds
+		let lastRequestTime = 0;
 		const queue: Promise<void>[] = [];
-	
+
 		for (const [pairName, pair] of pairEntries) {
+			// Check Redis first
+			const cachedData = await redisClient.get(pairName + ":" + type);
+			if (cachedData) {
+				console.log("Using cached data for:", pairName);
+				const parsedData = JSON.parse(cachedData);
+				if (type === "day") {
+					pairs.kucoin[pairName].setCandles1Day(parsedData);
+				} else {
+					pairs.kucoin[pairName].setCandles1Week(parsedData);
+				}
+				continue;
+			}
+
+			// Rate limit only API requests
+			const now = Date.now();
+			const delay = Math.max(0, interval - (now - lastRequestTime));
+			if (delay > 0) {
+				await new Promise((resolve) => setTimeout(resolve, delay));
+			}
+			lastRequestTime = Date.now();
+
 			if (queue.length >= maxThreads) {
 				console.log("Thread Queue Full. Current Pair: ", pairName);
 				// Wait for one promise to resolve or reject
 				await Promise.race(queue);
 			}
-	
+
 			const task = fetchPairData(pairName)
 				.then((data) => {
-					if(type == "day") {
+					if (type === "day") {
 						pairs.kucoin[pairName].setCandles1Day(data);
-					}else {
+					} else {
 						pairs.kucoin[pairName].setCandles1Week(data);
 					}
 					// Remove resolved promise from the queue
@@ -175,15 +200,14 @@ const fetchCandleEngine = async (type?: string) => {
 					// Remove failed promise from the queue
 					queue.splice(queue.indexOf(task), 1);
 				});
-	
+
 			console.log("Adding Pair: ", pairName);
 			queue.push(task);
 		}
-	
+
 		// Wait for remaining promises to complete
 		await Promise.all(queue);
 	};
-	
 	// const kucoin = async () => {
 		
 
