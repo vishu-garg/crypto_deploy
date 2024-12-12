@@ -25,7 +25,7 @@ const Home: NextPage = ({ returnedPairsList }: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	clearRedisKeys();
+	await clearRedisKeys();
 	return {
 		props: {},
 	};
