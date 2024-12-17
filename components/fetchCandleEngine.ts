@@ -152,7 +152,7 @@ const fetchCandleEngine = async (type?: string) => {
 	const kucoin = async () => {
 		const pairEntries = Object.entries(pairs.kucoin);
 		const maxThreads = 30; // Limit of simultaneous threads
-		const maxRequestsPerMinute = 150;
+		const maxRequestsPerMinute = 1000;
 		const interval = 60000 / maxRequestsPerMinute; // Time interval between API requests in milliseconds
 		let lastRequestTime = 0;
 		const queue: Promise<void>[] = [];
