@@ -1,3 +1,10 @@
+# 1.0.0 (2025-02-24)
+
+
+### Features
+
+* initial commit for interview 24x7 ([f23a0a8](https://github.com/vishu-garg/interview_24x7/commit/f23a0a85235ec3fa082926933b42adfe3aba8719))
+
 ## [1.7.4](https://github.com/ixartz/SaaS-Boilerplate/compare/v1.7.3...v1.7.4) (2024-12-20)
 
 
