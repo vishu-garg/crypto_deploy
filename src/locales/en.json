@@ -1,0 +1,182 @@
+{
+  "Index": {
+    "meta_title": "Interview 24x7 - Prepare for your upcoming interview using mock AI.",
+    "meta_description": "An AI-driven platform that offers realistic mock interviews, real-time feedback, and personalized insights to perfect your interview skills."
+  },
+  "Navbar": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "product": "Product",
+    "docs": "Docs",
+    "blog": "Blog",
+    "community": "Community",
+    "company": "Company",
+    "about_us": "About Us"
+  },
+  "Hero": {
+    "follow_twitter": "Follow @Interview24x7 on Twitter",
+    "title": "The best <important>AI Interviewer</important> to prepare for your upcoming interviews.",
+    "description": "Want to test your skills before the final showdown? Just give a mock interview with our AI-Agent and get live feedback and results.",
+    "primary_button": "Get Started",
+    "secondary_button": "Join Discord"
+  },
+  "Sponsors": {
+    "title": "Sponsored by"
+  },
+  "Features": {
+    "section_subtitle": "Features",
+    "section_title": "Kickstart your journey today for that Dream Job!!",
+    "section_description": "",
+    "feature1_title": "Experience Real-Interview Setup",
+    "feature1_description": "Step into a realistic interview environment that mimics the pressure and dynamics of actual interviews, so you can practice effectively and gain valuable experience.",
+    "feature2_title": "Instant Feedback",
+    "feature2_description": "Receive real-time, actionable feedback on your responses to help you quickly refine your answers and improve your overall interview performance.",
+    "feature3_title": "Interview for Multiple Profiles",
+    "feature3_description": "Practice with tailored mock interviews across various roles and industries, ensuring you’re well-prepared for any interview scenario.",
+    "feature4_title": "Data-Driven Insights",
+    "feature4_description": "Leverage comprehensive analytics that highlight your strengths and pinpoint areas for improvement, empowering you to focus your efforts where they matter most.",
+    "feature5_title": "Personalized Roadmap Plan",
+    "feature5_description": "Get a customized improvement plan based on your performance, outlining clear steps and strategies to enhance your interview skills and land your dream job.",
+    "feature6_title": "Community Support",
+    "feature6_description": "Connect with community members to practice interview questions, share experiences, and learn from peers who are also on the journey to success."
+  },
+  "Pricing": {
+    "section_subtitle": "Features",
+    "section_title": "Unlock the Full Potential of the SaaS Template",
+    "section_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
+    "button_text": "Get Started"
+  },
+  "PricingPlan": {
+    "free_plan_name": "Free",
+    "premium_plan_name": "Premium",
+    "enterprise_plan_name": "Enterprise",
+    "free_plan_description": "For individuals",
+    "premium_plan_description": "For small teams",
+    "enterprise_plan_description": "For industry leaders",
+    "feature_team_member": "{number} Team Members",
+    "feature_website": "{number} Websites",
+    "feature_storage": "{number} GB Storage",
+    "feature_transfer": "{number} TB Transfer",
+    "feature_email_support": "Email Support",
+    "plan_interval_month": "month",
+    "plan_interval_year": "year",
+    "next_renew_date": "Your subscription renews on {date}"
+  },
+  "FAQ": {
+    "question1": "What is the purpose of this website?",
+    "answer1": "Our platform helps students prepare for real-life interviews by offering AI-powered mock interviews, complete with live feedback and follow-up questions. This enables you to refine your responses, boost your confidence, and identify areas for improvement.",
+    "question2": "How do AI mock interviews work?",
+    "answer2": "Simply select your desired job role or upload your resume, and our AI generates a tailored set of interview questions. As you record your answers (via audio or text), our system provides real-time feedback and actionable insights to help you improve.",
+    "question3": "Can I practice for different types of interviews?",
+    "answer3": "Yes! Whether you’re preparing for technical, behavioral, or role-specific interviews, our AI agent adapts the questions and feedback to suit your needs—ensuring a comprehensive, customized practice session.",
+    "question4": "Is my data secure and private?",
+    "answer4": " Absolutely. We prioritize your privacy by ensuring that your recordings and interview data are securely handled and not stored beyond the feedback process. You can focus on your practice without worrying about data security.",
+    "question5": " How can I get started?",
+    "answer5": "Getting started is easy! Simply choose your preferred interview type, upload your resume, and begin your first mock interview session for free. As you practice, you’ll receive detailed insights to strengthen your interview skills."
+  },
+  "CTA": {
+    "title": "Ready for an Interview?",
+    "description": "Give an interview now and move an inch closer to your goals.",
+    "button_text": "Start Interview"
+  },
+  "Footer": {
+    "product": "Product",
+    "docs": "Docs",
+    "about_us": "About Us",
+    "blog": "Blog",
+    "community": "Community",
+    "company": "Company",
+    "terms_of_service": "Terms Of Service",
+    "privacy_policy": "Privacy Policy",
+    "designed_by": "Designed by <author></author>."
+  },
+  "ProtectFallback": {
+    "not_enough_permission": "You do not have the permissions to perform this action"
+  },
+  "SignIn": {
+    "meta_title": "Sign in",
+    "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
+  },
+  "SignUp": {
+    "meta_title": "Sign up",
+    "meta_description": "Effortlessly create an account through our intuitive sign-up process."
+  },
+  "DashboardLayout": {
+    "home": "Home",
+    "todos": "Todos",
+    "members": "Members",
+    "billing": "Billing",
+    "settings": "Settings",
+    "mockinterview": "Mock Interview"
+  },
+  "Dashboard": {
+    "meta_title": "SaaS Template Dashboard",
+    "meta_description": "A free and open-source landing page template for your SaaS business, built with Next.js, TypeScript, Shadcn UI, and Tailwind CSS."
+  },
+  "DashboardIndex": {
+    "title_bar": "Hi ! Good to see you here. \uD83D\uDC4B",
+    "title_bar_description": "Welcome to your dashboard",
+    "message_state_title": "Let's get started",
+    "message_state_description": "Customize this page by editing <code>dashboard/page.tsx</code>",
+    "message_state_button": "Star on GitHub",
+    "message_state_alternative": ""
+  },
+  "UserProfile": {
+    "title_bar": "User Profile",
+    "title_bar_description": "View and manage your user profile"
+  },
+  "OrganizationProfile": {
+    "title_bar": "Organization Management",
+    "title_bar_description": "Manage your organization"
+  },
+  "Billing": {
+    "title_bar": "Billing",
+    "title_bar_description": "Manage your billing and subscription",
+    "current_section_title": "Current Plan",
+    "current_section_description": "Adjust your payment plan to best suit your requirements",
+    "manage_subscription_button": "Manage Subscription"
+  },
+  "BillingOptions": {
+    "current_plan": "Current Plan",
+    "upgrade_plan": "Get Started"
+  },
+  "CheckoutConfirmation": {
+    "title_bar": "Payment Confirmation",
+    "message_state_title": "Payment successful",
+    "message_state_description": "Your payment has been successfully processed. Thank you for your purchase!",
+    "message_state_button": "Go back to Billing"
+  },
+  "DataTable": {
+    "no_results": "No results."
+  },
+  "Todos": {
+    "title_bar": "Todo List",
+    "title_bar_description": "View and manage your todo list",
+    "add_todo_button": "New todo"
+  },
+  "TodoTableColumns": {
+    "open_menu": "Open menu",
+    "edit": "Edit",
+    "delete": "Delete",
+    "title_header": "Title",
+    "message_header": "Message",
+    "created_at_header": "Created at"
+  },
+  "AddTodo": {
+    "title_bar": "Add Todo",
+    "add_todo_section_title": "Create a new todo",
+    "add_todo_section_description": "Fill in the form below to create a new todo"
+  },
+  "EditTodo": {
+    "title_bar": "Edit todo",
+    "edit_todo_section_title": "Modify todo",
+    "edit_todo_section_description": "Fill in the form below to edit the todo"
+  },
+  "TodoForm": {
+    "title_label": "Title",
+    "title_description": "Enter a descriptive title for your todo.",
+    "message_title": "Message",
+    "message_description": "Enter a detailed message for your todo.",
+    "submit_button": "Submit"
+  }
+}
