@@ -1,4 +1,4 @@
-import { clearRedisKeys } from '@/app/api/redis/route';
+import { clearRedisKeys } from '@/libs/redis';
 
 const Home = async () => {
   await clearRedisKeys();

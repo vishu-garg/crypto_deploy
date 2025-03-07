@@ -1,5 +1,5 @@
 // @ts-nocheck
-import redisClient from '@/app/api/redis/route';
+import redisClient from '@/libs/redis';
 
 import pairs from './pairs';
 
