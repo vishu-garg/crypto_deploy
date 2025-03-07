@@ -74,9 +74,9 @@ export const DashboardHeader = (props: {
 
           {/* PRO: Dark mode toggle button */}
 
-          <li data-fade>
-            <LocaleSwitcher />
-          </li>
+          {/*<li data-fade>*/}
+          {/*  <LocaleSwitcher />*/}
+          {/*</li>*/}
 
           <li>
             <Separator orientation="vertical" className="h-4" />
