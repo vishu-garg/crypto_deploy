@@ -1,7 +1,7 @@
 {
   "Index": {
-    "meta_title": "Interview 24x7 - Prepare for your upcoming interview using mock AI.",
-    "meta_description": "An AI-driven platform that offers realistic mock interviews, real-time feedback, and personalized insights to perfect your interview skills."
+    "meta_title": "TradingPeeps",
+    "meta_description": "A customized Chart Screener to analyze the trends in crypto-markets."
   },
   "Navbar": {
     "sign_in": "Sign In",
@@ -51,10 +51,10 @@
     "premium_plan_name": "Premium",
     "enterprise_plan_name": "Enterprise",
     "free_plan_description": "For individuals",
-    "premium_plan_description": "For small teams",
+    "premium_plan_description": "For custom trade setup",
     "enterprise_plan_description": "For industry leaders",
-    "feature_team_member": "{number} Team Members",
-    "feature_website": "{number} Websites",
+    "chart_access": "{content}",
+    "support": "{number}",
     "feature_storage": "{number} GB Storage",
     "feature_transfer": "{number} TB Transfer",
     "feature_email_support": "Email Support",
@@ -110,8 +110,8 @@
     "customcharts": "My Charts"
   },
   "Dashboard": {
-    "meta_title": "SaaS Template Dashboard",
-    "meta_description": "A free and open-source landing page template for your SaaS business, built with Next.js, TypeScript, Shadcn UI, and Tailwind CSS."
+    "meta_title": "Trading Peeps | Dashboard",
+    "meta_description": "A customized Chart Screener to analyze the trends in crypto-markets."
   },
   "DashboardIndex": {
     "title_bar": "Hi ! Good to see you here. \uD83D\uDC4B",

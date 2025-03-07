@@ -35,25 +35,20 @@ export const PricingPlanList: Record<string, PricingPlan> = {
     devPriceId: '',
     prodPriceId: '',
     features: {
-      teamMember: 2,
-      website: 2,
-      storage: 2,
-      transfer: 2,
+      chartAccess: 'Access to limited trade setups',
     },
   },
   [PLAN_ID.PREMIUM]: {
     id: PLAN_ID.PREMIUM,
-    price: 79,
+    price: 9,
     interval: BILLING_INTERVAL.MONTH,
     testPriceId: 'price_premium_test', // Use for testing
     // FIXME: Update the price ID, you can create it after running `npm run stripe:setup-price`
     devPriceId: 'price_1PNksvKOp3DEwzQlGOXO7YBK',
     prodPriceId: '',
     features: {
-      teamMember: 5,
-      website: 5,
-      storage: 5,
-      transfer: 5,
+      chartAccess: 'Access to New & Custom Trade Setups',
+      support: 'Tech-Support to build new pattern'
     },
   },
 };

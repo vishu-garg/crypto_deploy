@@ -34,7 +34,8 @@ export const Pricing = () => {
                 size: 'sm',
                 className: 'mt-5 w-full',
               })}
-              href="/sign-up"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfvMlpDyEDgwpIB26nDJCcrQ0HMh443XPP_y6zr7BgRNRCD9g/viewform?usp=dialog"
+              target="_blank"
             >
               {t('button_text')}
             </Link>

@@ -86,7 +86,7 @@ export const Footer = () => {
         )}
       >
         <li>
-          <Link href="/about_us">{t('about_us')}</Link>
+          <Link href="/about-us">{t('about_us')}</Link>
         </li>
 
         {/* <li> */}
@@ -94,11 +94,11 @@ export const Footer = () => {
         {/* </li> */}
 
         <li>
-          <Link href="/sign-up">{t('blog')}</Link>
+          <Link href="/blog">{t('blog')}</Link>
         </li>
 
         <li>
-          <Link href="/sign-up">{t('community')}</Link>
+          <Link href="/community">{t('community')}</Link>
         </li>
 
         {/* <li> */}

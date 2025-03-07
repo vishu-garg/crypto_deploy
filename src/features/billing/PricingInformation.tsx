@@ -20,30 +20,32 @@ export const PricingInformation = (props: {
           button={props.buttonList[plan.id]}
         >
           <PricingFeature>
-            {t('feature_team_member', {
-              number: plan.features.teamMember,
+            {t('chart_access', {
+              content: plan.features.chartAccess,
             })}
           </PricingFeature>
 
-          <PricingFeature>
-            {t('feature_website', {
-              number: plan.features.website,
-            })}
-          </PricingFeature>
+          {plan.features.support && (
+            <PricingFeature>
+              {t('support', {
+                number: plan.features.support,
+              })}
+            </PricingFeature>
+          )}
 
-          <PricingFeature>
-            {t('feature_storage', {
-              number: plan.features.storage,
-            })}
-          </PricingFeature>
+          {/* <PricingFeature> */}
+          {/*  {t('feature_storage', { */}
+          {/*    number: plan.features.storage, */}
+          {/*  })} */}
+          {/* </PricingFeature> */}
 
-          <PricingFeature>
-            {t('feature_transfer', {
-              number: plan.features.transfer,
-            })}
-          </PricingFeature>
+          {/* <PricingFeature> */}
+          {/*  {t('feature_transfer', { */}
+          {/*    number: plan.features.transfer, */}
+          {/*  })} */}
+          {/* </PricingFeature> */}
 
-          <PricingFeature>{t('feature_email_support')}</PricingFeature>
+          {/* <PricingFeature>{t('feature_email_support')}</PricingFeature> */}
         </PricingCard>
       ))}
     </div>

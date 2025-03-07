@@ -47,7 +47,7 @@
     "free_plan_description": "Pour les particuliers",
     "premium_plan_description": "Pour les petites équipes",
     "enterprise_plan_description": "Pour les leaders de l'industrie",
-    "feature_team_member": "{number} membres",
+    "chart_access": "{number}",
     "feature_website": "{number} sites internet",
     "feature_storage": "{number} Go de stockage",
     "feature_transfer": "{number} TB de transfert",

@@ -29,10 +29,8 @@ export type PricingPlan = {
   devPriceId: string;
   prodPriceId: string;
   features: {
-    teamMember: number;
-    website: number;
-    storage: number;
-    transfer: number;
+    chartAccess: string;
+    support?: string;
   };
 };
 
