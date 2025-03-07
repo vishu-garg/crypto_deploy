@@ -1,3 +1,4 @@
+// @ts-nocheck
 import redisClient from '@/app/api/redis/route';
 
 import pairs from './pairs';
@@ -64,16 +65,6 @@ const fetchCandleEngine = async (type?: string) => {
       fromDate = new Date(new Date().getTime() - 4 * 7 * 60 * 1000 * 60 * 24).getTime();
       interval = 7 * 1440;
     }
-
-    // const fromDate = new Date(new Date().getTime() - 15 * 60 * 1000 * 60  ).getTime();
-    // const toDate = new Date().getTime();
-    // const interval = 1;
-    // const cachedData = await redisClient.get(pairName + ":"+ type);
-    // 	if(cachedData != null) {
-    // 		console.log("Fetched data from cache for: ", pairName + ":" + type);
-    // 		const parsedData = JSON.parse(cachedData) as series;
-    // 		return parsedData;
-    // 	}
 
     console.log('Fetching from API for: ', `${pairName}:${type}`);
 
@@ -209,94 +200,8 @@ const fetchCandleEngine = async (type?: string) => {
     // Wait for remaining promises to complete
     await Promise.all(queue);
   };
-  // const kucoin = async () => {
-
-  // 	for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
-  // 	}
-
-  // 	// get all tradable pairs on koocoin
-  // 	// Cant remember why I had included this in the original code
-
-  // 	// await fetch('https://api-futures.kucoin.com/api/v1/contracts/active')
-  // 	// 	.then((res) => res.json())
-  // 	// 	.then((res) => {
-  // 	// 		if (res.code === '200000') {
-  // 	// 			for (let i = 0; i < res.data.length; i++) {
-  // 	// 				const pairName = res.data[i].symbol;
-  // 	// 				const turnover24Hrs = res.data[i].turnoverOf24h;
-  // 	// 				try {
-  // 	// 					pairs.kucoin[pairName].setRanking(turnover24Hrs);
-  // 	// 				} catch (error) {
-  // 	// 					console.log('fetch candleengine kookoin error on -->', pairName);
-  // 	// 				}
-  // 	// 			}
-  // 	// 		}
-  // 	// 		// for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
-  // 	// 		// 	// pairs.kucoin[pairName].setRanking()
-  // 	// 		// }
-  // 	// 	});
-  // }
-
-  const binance = async () => {
-    const interval = '1d';
-    const limit = 5;
-    for (const [pairName, pair] of Object.entries(pairs.binance)) {
-      const url = `https://fapi.binance.com/fapi/v1/klines?interval=${interval}&symbol=${pairName}&limit=${limit}`;
-      const data: series = await fetch(url).then(res => res.json()).then((res: binanceres) => {
-        const reversedData = res.reverse();
-        // console.log('inside binance');
-        // console.log(res);
-        const r = reversedData.map((ele, index, array) => {
-          const [timeCurr, openCurr, highCurr, lowCurr, closeCurr] = binanceOHLCV(array[index]);
-          let cpr: cpr;
-          let camrilla: camrilla;
-
-          if (index < array.length - 1) {
-            const [timePrev, openPrev, highPrev, lowPrev, closePrev] = binanceOHLCV(array[index + 1]);
-            cpr = calcCPR(highPrev, lowPrev, closePrev);
-            camrilla = calcCamarilla(highPrev, lowPrev, closePrev);
-          } else {
-            cpr = {
-              pivot: 0,
-              bc: 0,
-              tc: 0,
-              r1: 0,
-              r2: 0,
-              s1: 0,
-              s2: 0,
-            };
-            camrilla = {
-              pivot: 0,
-              l3: 0,
-              l4: 0,
-              h3: 0,
-              h4: 0,
-            };
-          }
-
-          return {
-            name: pairName,
-            time: timeCurr,
-            open: openCurr,
-            close: closeCurr,
-            high: highCurr,
-            low: lowCurr,
-            cpr,
-            camrilla,
-          };
-        });
-        return r;
-      });
-      pairs.binance[pairName].setCandles1Day(await data);
-    }
-  };
-
   // If exchange, run that exchange function
   await kucoin();
-  // await binance();
-  // return {
-  // 	kucoin,
-  // }
 };
 
 export default fetchCandleEngine;

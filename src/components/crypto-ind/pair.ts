@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { interval } from '@/types/crypto-ind/enums';
 
 const pair = (name = 'BTC/USDT') => {

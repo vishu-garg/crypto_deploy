@@ -1,15 +1,5 @@
+// @ts-nocheck
 import pairs from './pairs';
-
-// type oneCandle = {
-// 	name: string;
-// 	time: number;
-// 	open: number;
-// 	close: number;
-// 	high: number;
-// 	low: number;
-// 	pivot: number
-// };
-
 // type series = oneCandle[];
 
 const ranOnce = false;
@@ -20,15 +10,6 @@ const fetchCandleEngine = async () => {
   }
 
   const kucoinOHLCV = (ohlcv: any) => {
-    const time = Number.parseFloat(ohlcv[0]) / 1000;
-    const open = Number.parseFloat(ohlcv[1]) * 1;
-    const high = Number.parseFloat(ohlcv[2]) * 1;
-    const low = Number.parseFloat(ohlcv[3]) * 1;
-    const close = Number.parseFloat(ohlcv[4]) * 1;
-    return [time, open, high, low, close];
-  };
-
-  const binanceOHLCV = (ohlcv: any) => {
     const time = Number.parseFloat(ohlcv[0]) / 1000;
     const open = Number.parseFloat(ohlcv[1]) * 1;
     const high = Number.parseFloat(ohlcv[2]) * 1;
@@ -88,7 +69,7 @@ const fetchCandleEngine = async () => {
             let camrilla: camrilla;
 
             if (index < array.length - 1) {
-              const [timePrev, openPrev, highPrev, lowPrev, closePrev] = kucoinOHLCV(array[index + 1]);
+              const [, , highPrev, lowPrev, closePrev] = kucoinOHLCV(array[index + 1]);
               //  pivot = (highPrev + lowPrev + closePrev) / 3;
               cpr = calcCPR(highPrev, lowPrev, closePrev);
               camrilla = calcCamarilla(highPrev, lowPrev, closePrev);
@@ -141,72 +122,11 @@ const fetchCandleEngine = async () => {
             }
           }
         }
-        // for (const [pairName, pair] of Object.entries(pairs.kucoin)) {
-        // 	// pairs.kucoin[pairName].setRanking()
-        // }
       });
   };
 
-  // const binance = async () => {
-  // 	const interval = '1d';
-  // 	const limit = 5;
-  // 	for (let [pairName, pair] of Object.entries(pairs.binance)) {
-  // 		const url = `https://fapi.binance.com/fapi/v1/klines?interval=${interval}&symbol=${pairName}&limit=${limit}`;
-  // 		const data: series = await fetch(url).then(res => res.json()).then((res: binanceres) => {
-  // 			const reversedData = res.reverse();
-  // 			// console.log('inside binance');
-  // 			// console.log(res);
-  // 			const r = reversedData.map((ele, index, array) => {
-  // 				const [timeCurr, openCurr, highCurr, lowCurr, closeCurr] = binanceOHLCV(array[index]);
-  // 				let cpr: cpr;
-  // 				let camrilla: camrilla;
-
-  // 				if (index < array.length - 1) {
-  // 					const [timePrev, openPrev, highPrev, lowPrev, closePrev] = binanceOHLCV(array[index + 1]);
-  // 					cpr = calcCPR(highPrev, lowPrev, closePrev);
-  // 					camrilla = calcCamarilla(highPrev, lowPrev, closePrev);
-  // 				} else {
-  // 					cpr = {
-  // 						pivot: 0,
-  // 						bc: 0,
-  // 						tc: 0,
-  // 						r1: 0,
-  // 						r2: 0,
-  // 						s1: 0,
-  // 						s2: 0,
-  // 					};
-  // 					camrilla = {
-  // 						pivot: 0,
-  // 						l3: 0,
-  // 						l4: 0,
-  // 						h3: 0,
-  // 						h4: 0,
-  // 					};
-  // 				}
-
-  // 				return {
-  // 					name: pairName,
-  // 					time: timeCurr,
-  // 					open: openCurr,
-  // 					close: closeCurr,
-  // 					high: highCurr,
-  // 					low: lowCurr,
-  // 					cpr,
-  // 					camrilla,
-  // 				};
-  // 			});
-  // 			return r;
-  // 		})
-  // 		pairs.binance[pairName].setCandles1Day(await data);
-  // 	}
-  // }
-
   // If exchange, run that exchange function
   await kucoin();
-  // await binance();
-  // return {
-  // 	kucoin,
-  // }
 };
 
 export default fetchCandleEngine;

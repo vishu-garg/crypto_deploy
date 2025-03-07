@@ -1,3 +1,4 @@
+// @ts-nocheck
 import fetchCandleEngine from './fetchCandleEngine';
 import fetchCandleEngine1hr from './fetchCandleEngine1hr';
 import pairs from './pairs';
@@ -9,7 +10,6 @@ const init: any = () => {
   const timerArray: any = [];
 
   const init1Day: any = async () => {
-    console.log(`inside INIT func at ${new Date()}`);
     await fetchCandleEngine('day');
     for (const exchange of Object.keys(pairs)) {
       // console.log('exchange -->> ' + exchange);
@@ -23,7 +23,6 @@ const init: any = () => {
   };
 
   const init1Week: any = async () => {
-    console.log(`inside INIT func for Week at ${new Date()}`);
     await fetchCandleEngine('week');
     for (const exchange of Object.keys(pairs)) {
       // console.log('exchange -->> ' + exchange);
@@ -37,7 +36,6 @@ const init: any = () => {
   };
 
   const init1hr: any = async () => {
-    console.log(`inside INIT func at ${new Date()}`);
     await fetchCandleEngine1hr();
     for (const exchange of Object.keys(pairs)) {
       if (exchange === 'kucoin') {

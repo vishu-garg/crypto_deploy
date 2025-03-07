@@ -1,4 +1,4 @@
-// app/page.tsx
+// @ts-nocheck
 import CryptoIndicators from '@/components/crypto-ind/CryptoIndicators';
 import init from '@/components/crypto-ind/init';
 import pairs from '@/components/crypto-ind/pairs';

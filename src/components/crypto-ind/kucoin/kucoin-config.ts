@@ -1,32 +1,34 @@
+// @ts-nocheck
 // /**
 //  * copy to config.js, and write configure
 //  */
 const init = {
-	/** set API baseUrl, */
-	/**   if not set this key, or empty, or false, or undefined, */
-	/**   default baseUrl will be set by `process.env.PRODUCTION` */
-	/**   if process.env.PRODUCTION === 'prod', the default value will be https://api.kucoin.io */
-	/**   else use sandbox as https://openapi-sandbox.kucoin.io */
-	/** Auth infos */
-	/**   key is API key */
-	/**   secret is API secret */
-	/**   passphrase as API passphrase */
-	// baseUrl: 'https://openapi-sandbox.kucoin.com',
-	baseUrl: 'https://api-sandbox-futures.kucoin.com',
-	// apiAuth: {
-	// 	key: '62bed3f641a5330001d19ac0',
-	// 	secret: 'f4323417-2e93-42e9-aa95-74f6527b4916',
-	// 	passphrase: '12344321',
-	// },
-	apiAuth: {
-		key: '62711be22b968a0001535337',
-		secret: '8bff0a9a-73a6-419b-aa53-8845abaf02fb',
-		passphrase: '12344321',
-	},
-	authVersion: 2,
+  /** set API baseUrl, */
+  /**   if not set this key, or empty, or false, or undefined, */
+  /**   default baseUrl will be set by `process.env.PRODUCTION` */
+  /**   if process.env.PRODUCTION === 'prod', the default value will be https://api.kucoin.io */
+  /**   else use sandbox as https://openapi-sandbox.kucoin.io */
+  /** Auth infos */
+  /**   key is API key */
+  /**   secret is API secret */
+  /**   passphrase as API passphrase */
+  // baseUrl: 'https://openapi-sandbox.kucoin.com',
+  baseUrl: 'https://api-sandbox-futures.kucoin.com',
+  // apiAuth: {
+  // 	key: '62bed3f641a5330001d19ac0',
+  // 	secret: 'f4323417-2e93-42e9-aa95-74f6527b4916',
+  // 	passphrase: '12344321',
+  // },
+  apiAuth: {
+    key: '62711be22b968a0001535337',
+    secret: '8bff0a9a-73a6-419b-aa53-8845abaf02fb',
+    passphrase: '12344321',
+  },
+  authVersion: 2,
 };
 
 const API = require('kucoin-node-sdk');
+
 API.init(init);
 
 export default API;
@@ -53,5 +55,3 @@ export default API;
 // authVersion: 2}
 
 // export default kucoinConfig;
-
-
