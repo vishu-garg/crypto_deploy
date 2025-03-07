@@ -29,8 +29,8 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
                 label: t('home'),
               },
               {
-                href: '/mock-interview',
-                label: t('mockinterview'),
+                href: '/customization',
+                label: t('customcharts'),
               },
               // PRO: Link to the /dashboard/todos page
               // {

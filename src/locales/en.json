@@ -14,36 +14,36 @@
     "about_us": "About Us"
   },
   "Hero": {
-    "follow_twitter": "Follow @Interview24x7 on Twitter",
-    "title": "The best <important>AI Interviewer</important> to prepare for your upcoming interviews.",
-    "description": "Want to test your skills before the final showdown? Just give a mock interview with our AI-Agent and get live feedback and results.",
+    "follow_twitter": "Follow @tradingpeeps on Twitter",
+    "title": "A customized <important>Chart Screener</important> to analyze the trends in crypto-markets.",
+    "description": "Tired of searching for best trades? Identify the various patterns and charts in the crypto world using our customized trade setups.",
     "primary_button": "Get Started",
-    "secondary_button": "Join Discord"
+    "secondary_button": "Join Us"
   },
   "Sponsors": {
     "title": "Sponsored by"
   },
   "Features": {
     "section_subtitle": "Features",
-    "section_title": "Kickstart your journey today for that Dream Job!!",
+    "section_title": "Identify the best market patterns...",
     "section_description": "",
-    "feature1_title": "Experience Real-Interview Setup",
-    "feature1_description": "Step into a realistic interview environment that mimics the pressure and dynamics of actual interviews, so you can practice effectively and gain valuable experience.",
-    "feature2_title": "Instant Feedback",
-    "feature2_description": "Receive real-time, actionable feedback on your responses to help you quickly refine your answers and improve your overall interview performance.",
-    "feature3_title": "Interview for Multiple Profiles",
-    "feature3_description": "Practice with tailored mock interviews across various roles and industries, ensuring you’re well-prepared for any interview scenario.",
-    "feature4_title": "Data-Driven Insights",
-    "feature4_description": "Leverage comprehensive analytics that highlight your strengths and pinpoint areas for improvement, empowering you to focus your efforts where they matter most.",
+    "feature1_title": "Advanced Pattern Recognition",
+    "feature1_description": "Leverage our state-of-the-art algorithms that automatically detect and display a wide range of chart patterns. Whether you’re looking for classic formations, supports, resistances, or more complex patterns, our system pinpoints them with precision.",
+    "feature2_title": "Dual Timeframe Analysis",
+    "feature2_description": "Get a complete market perspective with our dual timeframe approach. Our platform offers Daily and Weekly charts ideal for analyzing both short-term and long-term trends.",
+    "feature3_title": "Custom Chart Solutions",
+    "feature3_description": "We understand that every trader’s needs are unique. For those requiring a more tailored analysis, our custom charting services provide bespoke charts designed to meet your specific trading strategies and insights.",
+    "feature4_title": "Real-Time Data Updates",
+    "feature4_description": "Stay ahead in the fast-paced world of cryptocurrency trading. Our system continuously updates with real-time data, ensuring you have the most current information to make informed decisions.",
     "feature5_title": "Personalized Roadmap Plan",
     "feature5_description": "Get a customized improvement plan based on your performance, outlining clear steps and strategies to enhance your interview skills and land your dream job.",
     "feature6_title": "Community Support",
     "feature6_description": "Connect with community members to practice interview questions, share experiences, and learn from peers who are also on the journey to success."
   },
   "Pricing": {
-    "section_subtitle": "Features",
-    "section_title": "Unlock the Full Potential of the SaaS Template",
-    "section_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
+    "section_subtitle": "Pricing",
+    "section_title": "Unlock the Full Potential of this platform",
+    "section_description": "Want a customized trade setup? Join our premium plan and we will get it ready in no time.",
     "button_text": "Get Started"
   },
   "PricingPlan": {
@@ -63,21 +63,21 @@
     "next_renew_date": "Your subscription renews on {date}"
   },
   "FAQ": {
-    "question1": "What is the purpose of this website?",
-    "answer1": "Our platform helps students prepare for real-life interviews by offering AI-powered mock interviews, complete with live feedback and follow-up questions. This enables you to refine your responses, boost your confidence, and identify areas for improvement.",
-    "question2": "How do AI mock interviews work?",
-    "answer2": "Simply select your desired job role or upload your resume, and our AI generates a tailored set of interview questions. As you record your answers (via audio or text), our system provides real-time feedback and actionable insights to help you improve.",
-    "question3": "Can I practice for different types of interviews?",
-    "answer3": "Yes! Whether you’re preparing for technical, behavioral, or role-specific interviews, our AI agent adapts the questions and feedback to suit your needs—ensuring a comprehensive, customized practice session.",
-    "question4": "Is my data secure and private?",
-    "answer4": " Absolutely. We prioritize your privacy by ensuring that your recordings and interview data are securely handled and not stored beyond the feedback process. You can focus on your practice without worrying about data security.",
-    "question5": " How can I get started?",
-    "answer5": "Getting started is easy! Simply choose your preferred interview type, upload your resume, and begin your first mock interview session for free. As you practice, you’ll receive detailed insights to strengthen your interview skills."
+    "question1": "What are crypto chart patterns and why are they important?",
+    "answer1": "Crypto chart patterns are recurring formations in price data that help traders identify potential market trends and turning points. Recognizing these patterns can provide insights into future price movements and guide trading decisions.",
+    "question2": "How do we detect these chart patterns?",
+    "answer2": "Our system employs advanced algorithms that analyze both daily and weekly charts to automatically recognize a wide range of patterns—from classic formations like head and shoulders and double tops to more complex structures—ensuring you never miss a critical signal.",
+    "question3": "What is the difference between the daily and weekly charts on your site?",
+    "answer3": "Daily charts are designed for short-term trend analysis, offering a close-up view of market fluctuations and rapid changes. Weekly charts, on the other hand, provide a broader perspective, highlighting longer-term trends and major market shifts.",
+    "question4": "Can I request custom chart solutions?",
+    "answer4": "Absolutely. In addition to our standard chart displays, we offer custom charting services tailored to your specific trading strategies and requirements. For premium users we provide personalized solutions with customized trade setup and tech support.",
+    "question5": "How often is the chart data updated?",
+    "answer5": "We provide real-time updates to ensure you’re working with the most current market information. Our continuous data feed means that both daily and weekly charts reflect the latest market dynamics, allowing for timely and informed trading decisions."
   },
   "CTA": {
-    "title": "Ready for an Interview?",
-    "description": "Give an interview now and move an inch closer to your goals.",
-    "button_text": "Start Interview"
+    "title": "Unlock Exclusive Insights",
+    "description": "Stay ahead of the market with the latest news and updates directly to your inbox. Subscribe to our newsletter today.",
+    "button_text": "Subscribe Now"
   },
   "Footer": {
     "product": "Product",
@@ -107,7 +107,7 @@
     "members": "Members",
     "billing": "Billing",
     "settings": "Settings",
-    "mockinterview": "Mock Interview"
+    "customcharts": "My Charts"
   },
   "Dashboard": {
     "meta_title": "SaaS Template Dashboard",

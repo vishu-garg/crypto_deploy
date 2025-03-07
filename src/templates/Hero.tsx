@@ -10,7 +10,7 @@ export const Hero = () => {
   const t = useTranslations('Hero');
 
   return (
-    <Section className="pb-4 pt-24">
+    <Section className="pb-24 pt-24">
       <CenteredHero
         banner={(
           <a

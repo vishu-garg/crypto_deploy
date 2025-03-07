@@ -6,7 +6,7 @@ const localePrefix: LocalePrefix = 'as-needed';
 
 // FIXME: Update this configuration file based on your project information
 export const AppConfig = {
-  name: 'Interview 24x7',
+  name: 'Trading Peeps',
   locales: [
     {
       id: 'en',
@@ -54,21 +54,6 @@ export const PricingPlanList: Record<string, PricingPlan> = {
       website: 5,
       storage: 5,
       transfer: 5,
-    },
-  },
-  [PLAN_ID.ENTERPRISE]: {
-    id: PLAN_ID.ENTERPRISE,
-    price: 199,
-    interval: BILLING_INTERVAL.MONTH,
-    testPriceId: 'price_enterprise_test', // Use for testing
-    // FIXME: Update the price ID, you can create it after running `npm run stripe:setup-price`
-    devPriceId: 'price_1PNksvKOp3DEwzQli9IvXzgb',
-    prodPriceId: 'price_123',
-    features: {
-      teamMember: 100,
-      website: 100,
-      storage: 100,
-      transfer: 100,
     },
   },
 };

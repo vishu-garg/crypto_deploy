@@ -72,62 +72,62 @@ export const Features = () => {
             {t('feature3_description')}
           </FeatureCard>
 
-          <FeatureCard
-            icon={(
-              <svg
-                className="stroke-primary-foreground stroke-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M0 0h24v24H0z" stroke="none" />
-                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />
-              </svg>
-            )}
-            title={t('feature4_title')}
-          >
-            {t('feature4_description')}
-          </FeatureCard>
+          {/*<FeatureCard*/}
+          {/*  icon={(*/}
+          {/*    <svg*/}
+          {/*      className="stroke-primary-foreground stroke-2"*/}
+          {/*      xmlns="http://www.w3.org/2000/svg"*/}
+          {/*      viewBox="0 0 24 24"*/}
+          {/*      fill="none"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    >*/}
+          {/*      <path d="M0 0h24v24H0z" stroke="none" />*/}
+          {/*      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />*/}
+          {/*    </svg>*/}
+          {/*  )}*/}
+          {/*  title={t('feature4_title')}*/}
+          {/*>*/}
+          {/*  {t('feature4_description')}*/}
+          {/*</FeatureCard>*/}
 
-          <FeatureCard
-            icon={(
-              <svg
-                className="stroke-primary-foreground stroke-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M0 0h24v24H0z" stroke="none" />
-                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />
-              </svg>
-            )}
-            title={t('feature5_title')}
-          >
-            {t('feature5_description')}
-          </FeatureCard>
+          {/*<FeatureCard*/}
+          {/*  icon={(*/}
+          {/*    <svg*/}
+          {/*      className="stroke-primary-foreground stroke-2"*/}
+          {/*      xmlns="http://www.w3.org/2000/svg"*/}
+          {/*      viewBox="0 0 24 24"*/}
+          {/*      fill="none"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    >*/}
+          {/*      <path d="M0 0h24v24H0z" stroke="none" />*/}
+          {/*      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />*/}
+          {/*    </svg>*/}
+          {/*  )}*/}
+          {/*  title={t('feature5_title')}*/}
+          {/*>*/}
+          {/*  {t('feature5_description')}*/}
+          {/*</FeatureCard>*/}
 
-          <FeatureCard
-            icon={(
-              <svg
-                className="stroke-primary-foreground stroke-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M0 0h24v24H0z" stroke="none" />
-                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />
-              </svg>
-            )}
-            title={t('feature6_title')}
-          >
-            {t('feature6_description')}
-          </FeatureCard>
+          {/*<FeatureCard*/}
+          {/*  icon={(*/}
+          {/*    <svg*/}
+          {/*      className="stroke-primary-foreground stroke-2"*/}
+          {/*      xmlns="http://www.w3.org/2000/svg"*/}
+          {/*      viewBox="0 0 24 24"*/}
+          {/*      fill="none"*/}
+          {/*      strokeLinecap="round"*/}
+          {/*      strokeLinejoin="round"*/}
+          {/*    >*/}
+          {/*      <path d="M0 0h24v24H0z" stroke="none" />*/}
+          {/*      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />*/}
+          {/*    </svg>*/}
+          {/*  )}*/}
+          {/*  title={t('feature6_title')}*/}
+          {/*>*/}
+          {/*  {t('feature6_description')}*/}
+          {/*</FeatureCard>*/}
         </div>
       </Section>
     </Background>
