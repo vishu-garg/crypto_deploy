@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
+import NewsMarquee from '@/components/common/NewsMarquee';
 import { DashboardHeader } from '@/features/dashboard/DashboardHeader';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
@@ -15,11 +16,14 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-export default function DashboardLayout(props: { children: React.ReactNode }) {
+export default function AuthLayout(props: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   const t = useTranslations('DashboardLayout');
 
   return (
-    <>
+    <div>
       <div className="shadow-md">
         <div className="mx-auto flex max-w-screen-xl items-center justify-between px-3 py-4">
           <DashboardHeader
@@ -46,14 +50,12 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
           />
         </div>
       </div>
-
       <div className="min-h-[calc(100vh-72px)] bg-muted">
-        <div className="mx-auto max-w-screen-xl px-3 pb-16 pt-6">
+        <div className="mx-auto max-w-screen-xl px-3 pb-16 pt-1">
+          <NewsMarquee />
           {props.children}
         </div>
       </div>
-    </>
+    </div>
   );
 }
-
-export const dynamic = 'force-dynamic';

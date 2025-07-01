@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import { ReduxProvider } from '@/store/Provider';
 import { AllLocales, AppConfig } from '@/utils/AppConfig';
 
 export const metadata: Metadata = {
@@ -77,17 +78,19 @@ export default function RootLayout(props: {
           locale={props.params.locale}
           messages={messages}
         >
-          <ClerkProvider
+          <ReduxProvider>
+            <ClerkProvider
             // PRO: Dark mode support for Clerk
-            localization={clerkLocale}
-            signInUrl={signInUrl}
-            signUpUrl={signUpUrl}
-            signInFallbackRedirectUrl={dashboardUrl}
-            signUpFallbackRedirectUrl={dashboardUrl}
-            afterSignOutUrl={afterSignOutUrl}
-          >
-            {props.children}
-          </ClerkProvider>
+              localization={clerkLocale}
+              signInUrl={signInUrl}
+              signUpUrl={signUpUrl}
+              signInFallbackRedirectUrl={dashboardUrl}
+              signUpFallbackRedirectUrl={dashboardUrl}
+              afterSignOutUrl={afterSignOutUrl}
+            >
+              {props.children}
+            </ClerkProvider>
+          </ReduxProvider>
         </NextIntlClientProvider>
       </body>
     </html>
